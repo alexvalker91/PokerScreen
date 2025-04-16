@@ -19,7 +19,7 @@ import java.util.Map;
 public class Main {
     private static Map<String, Mat> cardTemplates = new HashMap<>();
     private static final String TEMPLATES_PATH = "C:\\\\Users\\\\Aliaksandr_Kreyer\\\\Desktop\\\\my\\\\PokerScreen\\\\src\\\\main\\\\resources\\\\cards";
-    private static final double MATCH_THRESHOLD = 0.85;
+    private static final double MATCH_THRESHOLD = 0.91;
     static {
         System.load("C:\\Users\\Aliaksandr_Kreyer\\Desktop\\my\\OpenCV\\opencv\\build\\java\\x64\\opencv_java4110.dll");
         loadCardTemplates();
@@ -45,12 +45,12 @@ public class Main {
 
         // 3. Области интереса (настройте координаты)
 //        Rect myCardsROI = new Rect(860, 645, 200, 70);  // x, y, width, height
-        Rect communityCardsROI = new Rect(710, 350, 500, 135);
+        Rect communityCardsROI = new Rect(710, 350, 500, 105);
         Rect potROI = new Rect(870, 325, 190, 25);
 
-//        // Сохранение вырезанного кусочка
-////        String outputPath = "C:\\Users\\Aliaksandr_Kreyer\\Desktop\\my\\PokerScreen\\src\\main\\resources\\cards\\9.png";
-////        saveTemplateFromROI(img, communityCardsROI, outputPath);
+        // Сохранение вырезанного кусочка
+        String outputPath = "C:\\Users\\Aliaksandr_Kreyer\\Desktop\\my\\PokerScreen\\src\\main\\resources\\saved.png";
+        saveTemplateFromROI(img, communityCardsROI, outputPath);
 //
 ////        Imgproc.rectangle(img, myCardsROI.tl(), myCardsROI.br(), new Scalar(0, 0, 255), 3);
 //        Imgproc.rectangle(img, communityCardsROI.tl(), communityCardsROI.br(), new Scalar(0, 255, 0), 3);
