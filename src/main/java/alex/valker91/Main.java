@@ -37,7 +37,7 @@ public class Main {
 //        BufferedImage screenshot = new Robot().createScreenCapture(
 //                new Rectangle(Toolkit.getDefaultToolkit().getScreenSize())
 //        );
-        File screenshotFile = new File("screenshot_4_cards.png");
+        File screenshotFile = new File("screenshot_3_cards.png");
 //        ImageIO.write(screenshot, "png", screenshotFile);
 
         // 2. Загрузка изображения в OpenCV
