@@ -19,7 +19,7 @@ import java.util.Map;
 public class Main {
     private static Map<String, Mat> cardTemplates = new HashMap<>();
     private static final String TEMPLATES_PATH = "C:\\\\Users\\\\Aliaksandr_Kreyer\\\\Desktop\\\\my\\\\PokerScreen\\\\src\\\\main\\\\resources\\\\cards";
-    private static final double MATCH_THRESHOLD = 0.98;
+    private static final double MATCH_THRESHOLD = 0.985;
     static {
         System.load("C:\\Users\\Aliaksandr_Kreyer\\Desktop\\my\\OpenCV\\opencv\\build\\java\\x64\\opencv_java4110.dll");
         loadCardTemplates();
