@@ -19,10 +19,10 @@ public class ImageCropExample {
             int cropStartY = 0; // Начало обрезки по Y (0 пикселей от верхнего края)
 
             // Выполняем обрезку
-            BufferedImage croppedImage = originalImage.getSubimage(cropStartX+201, cropStartY+3, 95, originalImage.getHeight()-4);
+            BufferedImage croppedImage = originalImage.getSubimage(cropStartX+401, cropStartY+3, 95, originalImage.getHeight()-4);
 
             // Сохраняем обрезанное изображение
-            File outputFile = new File("C:\\Users\\Aliaksandr_Kreyer\\Desktop\\my\\PokerScreen\\src\\main\\resources\\cards\\8_diamonds.png");
+            File outputFile = new File("C:\\Users\\Aliaksandr_Kreyer\\Desktop\\my\\PokerScreen\\src\\main\\resources\\cards\\Error_spades.png");
             ImageIO.write(croppedImage, "png", outputFile);
 
             System.out.println("Изображение успешно обрезано и сохранено!");
