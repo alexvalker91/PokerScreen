@@ -27,7 +27,7 @@ public class Start {
     }
 
     public static void main(String[] args) {
-        File screenshotFile = new File("src/main/resources/screenshot/screenshot24.png");
+        File screenshotFile = new File("src/main/resources/screenshot/screenshot14.png");
         Mat img = Imgcodecs.imread(screenshotFile.getAbsolutePath());
         Imgcodecs.imwrite("img.png", img);
 
@@ -76,6 +76,26 @@ public class Start {
 //        Imgcodecs.imwrite("12345.png", card4SuiteCut);
         String recognizedCard4Suite = detectCardSuit(card4SuiteCut);
         System.out.println("Распознана карта 4 масть: " + recognizedCard4Suite);
+
+
+
+
+
+        Rect card5 = new Rect(1136, 405, 65, 66);
+        Mat card5Cut = allImage.submat(card5);
+//        Imgcodecs.imwrite("7_4.png", card5Cut);
+        String recognizedCard5 = matchCard(card5Cut);
+        System.out.println("Распознана карта 5: " + recognizedCard5);
+        Rect card5Suite = new Rect(1157, 362, 30, 31);
+        Mat card5SuiteCut = img.submat(card5Suite);
+//        Imgcodecs.imwrite("1234578.png", card5SuiteCut);
+        String recognizedCard5Suite = detectCardSuit(card5SuiteCut);
+        System.out.println("Распознана карта 5 масть: " + recognizedCard5Suite);
+
+
+
+
+
 
 
         Rect myCard1 = new Rect(870, 655, 40, 44);
@@ -265,7 +285,7 @@ public class Start {
                 bestMatch = entry.getKey();
             }
         }
-        return maxScore > 0.8 ? bestMatch : "Unknown (confidence: " + maxScore + ")";
+        return maxScore > 0.8 ? bestMatch : "Unknown";
     }
 
     private static void loadCardTemplates() {
