@@ -25,7 +25,7 @@ public class Start {
     }
 
     public static void main(String[] args) {
-        File screenshotFile = new File("src/main/resources/screenshot/screenshot21.png");
+        File screenshotFile = new File("src/main/resources/screenshot/screenshot24.png");
         Mat img = Imgcodecs.imread(screenshotFile.getAbsolutePath());
         Imgcodecs.imwrite("img.png", img);
 
