@@ -28,25 +28,25 @@ public class Start {
 
         Mat allImage = thresholding(img, 200, 67);
 
-        Rect card1 = new Rect(735, 405, 65, 70);
+        Rect card1 = new Rect(735, 405, 65, 66);
         Mat card1Cut = allImage.submat(card1);
         Imgcodecs.imwrite("7.png", card1Cut);
         String recognizedCard1 = matchCard(card1Cut);
         System.out.println("Распознана карта 1: " + recognizedCard1);
 
-        Rect card2 = new Rect(835, 405, 65, 70);
+        Rect card2 = new Rect(835, 405, 65, 66);
         Mat card2Cut = allImage.submat(card2);
         Imgcodecs.imwrite("7_2.png", card2Cut);
         String recognizedCard2 = matchCard(card2Cut);
         System.out.println("Распознана карта 2: " + recognizedCard2);
 
-        Rect card3 = new Rect(936, 405, 65, 70);
+        Rect card3 = new Rect(936, 405, 65, 66);
         Mat card3Cut = allImage.submat(card3);
         Imgcodecs.imwrite("7_3.png", card3Cut);
         String recognizedCard3 = matchCard(card3Cut);
         System.out.println("Распознана карта 3: " + recognizedCard3);
 
-        Rect card4 = new Rect(1035, 405, 65, 70);
+        Rect card4 = new Rect(1035, 405, 65, 66);
         Mat card4Cut = allImage.submat(card4);
 //        Imgcodecs.imwrite("7_4.png", card4Cut);
         String recognizedCard4 = matchCard(card4Cut);
