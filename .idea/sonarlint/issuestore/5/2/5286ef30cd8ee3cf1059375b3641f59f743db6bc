@@ -1,0 +1,20 @@
+
+Z
+java:S2589ß"7Remove this expression which always evaluates to "true"(ÆìÙ üÿÿÿÿ8×ˆ’Øä2
+]	java:S125"<This block of commented-out lines of code should be removed.(¡û—Šûÿÿÿÿ8Õ˜è×ä2
+U	java:S106D"9Replace this use of System.out or System.err by a logger.(½è·¨8Êþÿ×ä2
+Z	java:S106P"9Replace this use of System.out or System.err by a logger.(øƒ…ýÿÿÿÿ8ƒšç×ä2
+Z	java:S106w"9Replace this use of System.out or System.err by a logger.(íþ‘¸ûÿÿÿÿ8ïì‘Øä2
+Y	java:S125½"<This block of commented-out lines of code should be removed.(Ž·âå8²¶€Øä2
+Y	java:S125ä"<This block of commented-out lines of code should be removed.(Ç¸Œñ8–ë€Øä2
+^	java:S125–"<This block of commented-out lines of code should be removed.(»ž•ûÿÿÿÿ8˜õŠ×ä2
+[
+java:S1128"9Remove this unused import 'org.opencv.core.MatOfPoint2f'.(– ¿úÿÿÿÿ8“‰’Øä2
+U
+java:S1128"3Remove this unused import 'org.opencv.core.Scalar'.(µ¶¶ûÿÿÿÿ8”‰’Øä2
+K
+java:S1128".Remove this unused import 'java.util.Objects'.(¼¸õ›8”‰’Øä2
+O
+java:S1144Æ"1Remove this unused private "processImage" method.(ÖÙ÷8Œÿÿ×ä2
+Q
+java:S1144…"3Remove this unused private "matchComponent" method.(ô©…8›ë€Øä2

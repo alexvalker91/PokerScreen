@@ -23,14 +23,14 @@ public class Start {
     }
 
     public static void main(String[] args) {
-        File screenshotFile = new File("src/main/resources/screenshot/screenshot7.png");
+        File screenshotFile = new File("src/main/resources/screenshot/screenshot14.png");
         Mat img = Imgcodecs.imread(screenshotFile.getAbsolutePath());
 
         Mat allImage = thresholding(img, 200, 67);
 
         Rect card1 = new Rect(735, 405, 65, 66);
         Mat card1Cut = allImage.submat(card1);
-        Imgcodecs.imwrite("5.png", card1Cut);
+        Imgcodecs.imwrite("A.png", card1Cut);
         String recognizedCard1 = matchCard(card1Cut);
         System.out.println("Распознана карта 1: " + recognizedCard1);
 
@@ -46,9 +46,9 @@ public class Start {
         String recognizedCard3 = matchCard(card3Cut);
         System.out.println("Распознана карта 3: " + recognizedCard3);
 
-        Rect card4 = new Rect(1035, 405, 65, 66);
+        Rect card4 = new Rect(1036, 405, 65, 66);
         Mat card4Cut = allImage.submat(card4);
-//        Imgcodecs.imwrite("7_4.png", card4Cut);
+        Imgcodecs.imwrite("7_4.png", card4Cut);
         String recognizedCard4 = matchCard(card4Cut);
         System.out.println("Распознана карта 4: " + recognizedCard4);
     }

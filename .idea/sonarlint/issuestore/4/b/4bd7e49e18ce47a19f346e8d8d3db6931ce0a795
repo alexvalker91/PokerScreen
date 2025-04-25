@@ -1,0 +1,32 @@
+
+a
+java:S1854%"?Remove this useless assignment to local variable "templateImg".(§±¥€øÿÿÿÿ8‚úÍÖä2
+Z
+java:S1854""=Remove this useless assignment to local variable "imageName".(ÌÓà•8Ö‘ÎÖä2
+L
+java:S1172"*Remove this unused method parameter "img".(˜ø©Şüÿÿÿÿ8ƒúÍÖä2
+K
+java:S1481"".Remove this unused "imageName" local variable.(ÌÓà•8ô‘ÎÖä2
+R
+java:S1481%"0Remove this unused "templateImg" local variable.(§±¥€øÿÿÿÿ8¡úÍÖä2
+]	java:S125("<This block of commented-out lines of code should be removed.(Ö’êôÿÿÿÿÿ8¡úÍÖä2
+]	java:S125+"<This block of commented-out lines of code should be removed.(ÉàÛáşÿÿÿÿ8ô‘ÎÖä2
+X	java:S1256"<This block of commented-out lines of code should be removed.(˜ì—ò8˜˜òÊä2
+S
+java:S1128"1Remove this unused import 'org.opencv.core.Core'.(º¿®òûÿÿÿÿ8‹’ÎÖä2
+T
+java:S1128"7Remove this unused import 'org.opencv.core.MatOfPoint'.(°Á8‹’ÎÖä2
+S
+java:S1128"1Remove this unused import 'org.opencv.core.Rect'.(·Ğ¸úÿÿÿÿ8‹’ÎÖä2
+T
+java:S1128"7Remove this unused import 'org.opencv.imgproc.Imgproc'.(ââ®Ç8‹’ÎÖä2
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8’ÎÖä2
+T
+java:S1128"2Remove this unused import 'java.util.Collections'.(¢³ïÓşÿÿÿÿ8’ÎÖä2
+N
+java:S1128"1Remove this unused import 'java.util.Comparator'.(î¹ó¹8’ÎÖä2
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8’ÎÖä2
+[
+java:S1144"9Remove this unused private "tablePartRecognition" method.(˜ø©Şüÿÿÿÿ8¦¯òÊä2
