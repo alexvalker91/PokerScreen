@@ -1,6 +1,0 @@
-
-‡
-java:S1130"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ΩΨ¤ήύÿÿÿÿ
-]	java:S125"<This block of commented-out lines of code should be removed.(¦ζ²ύÿÿÿÿ8β¦θαζ2
-U
-java:S1128"3Remove this unused import 'org.opencv.core.Scalar'.(µ¶¶ϋÿÿÿÿ8β¦θαζ2

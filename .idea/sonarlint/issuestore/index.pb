@@ -1,10 +1,6 @@
 
 O
 .idea/libraries/opencv_4110.xml,4\f\4f8daee8cf3739256652cf1aefd6bb8acb90064e
-T
-$src/main/java/alex/valker91/ADG.java,c\d\cde09d411ccdce3979cb934c49e738ff4ed0c30d
-_
-/src/main/java/alex/valker91/main/Generater.java,0\6\06345803c93444b80d5d6f7ca23ef9f83ca0b1ad
 W
 'src/main/java/alex/valker91/MyMain.java,b\6\b641ad0d97fe8f552d59e78be9fd095af2796191
 W
