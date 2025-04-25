@@ -25,7 +25,7 @@ public class Start {
     }
 
     public static void main(String[] args) {
-        File screenshotFile = new File("src/main/resources/screenshot/screenshot32.png");
+        File screenshotFile = new File("src/main/resources/screenshot/screenshot13.png");
         Mat img = Imgcodecs.imread(screenshotFile.getAbsolutePath());
 
         Mat allImage = thresholding(img, 200, 67);
@@ -57,7 +57,7 @@ public class Start {
 
         Rect myCard1 = new Rect(870, 655, 40, 44);
         Mat myCard1Cut = allImage.submat(myCard1);
-//        Imgcodecs.imwrite("my_8.png", myCard1Cut);
+        Imgcodecs.imwrite("my_A.png", myCard1Cut);
         String recognizedMyCard1 = myMatchCard(myCard1Cut);
         System.out.println("Распознана моя карта 1: " + recognizedMyCard1);
 
