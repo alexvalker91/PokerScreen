@@ -25,39 +25,41 @@ public class Start {
     }
 
     public static void main(String[] args) {
-        File screenshotFile = new File("src/main/resources/screenshot/screenshot13.png");
+        File screenshotFile = new File("src/main/resources/screenshot/screenshot21.png");
         Mat img = Imgcodecs.imread(screenshotFile.getAbsolutePath());
+        Imgcodecs.imwrite("img.png", img);
 
         Mat allImage = thresholding(img, 200, 67);
+        Imgcodecs.imwrite("allImage.png", allImage);
 
         Rect card1 = new Rect(735, 405, 65, 66);
         Mat card1Cut = allImage.submat(card1);
-        Imgcodecs.imwrite("A.png", card1Cut);
+//        Imgcodecs.imwrite("A.png", card1Cut);
         String recognizedCard1 = matchCard(card1Cut);
         System.out.println("Распознана карта 1: " + recognizedCard1);
 
         Rect card2 = new Rect(835, 405, 65, 66);
         Mat card2Cut = allImage.submat(card2);
-        Imgcodecs.imwrite("7_2.png", card2Cut);
+//        Imgcodecs.imwrite("7_2.png", card2Cut);
         String recognizedCard2 = matchCard(card2Cut);
         System.out.println("Распознана карта 2: " + recognizedCard2);
 
         Rect card3 = new Rect(936, 405, 65, 66);
         Mat card3Cut = allImage.submat(card3);
-        Imgcodecs.imwrite("7_3.png", card3Cut);
+//        Imgcodecs.imwrite("7_3.png", card3Cut);
         String recognizedCard3 = matchCard(card3Cut);
         System.out.println("Распознана карта 3: " + recognizedCard3);
 
         Rect card4 = new Rect(1036, 405, 65, 66);
         Mat card4Cut = allImage.submat(card4);
-        Imgcodecs.imwrite("7_4.png", card4Cut);
+//        Imgcodecs.imwrite("7_4.png", card4Cut);
         String recognizedCard4 = matchCard(card4Cut);
         System.out.println("Распознана карта 4: " + recognizedCard4);
 
 
         Rect myCard1 = new Rect(870, 655, 40, 44);
         Mat myCard1Cut = allImage.submat(myCard1);
-        Imgcodecs.imwrite("my_A.png", myCard1Cut);
+//        Imgcodecs.imwrite("my_A.png", myCard1Cut);
         String recognizedMyCard1 = myMatchCard(myCard1Cut);
         System.out.println("Распознана моя карта 1: " + recognizedMyCard1);
 
@@ -122,7 +124,7 @@ public class Start {
 
                 double matchPercent = mmr.maxVal * 100; // Конвертируем в проценты
                 // Выводим результат для каждого шаблона
-                System.out.printf("Шаблон: %-10s | Совпадение: %.2f%%\n", entry.getKey(), matchPercent);
+//                System.out.printf("Шаблон: %-10s | Совпадение: %.2f%%\n", entry.getKey(), matchPercent);
 
                 if (mmr.maxVal > maxVal && mmr.maxVal >= threshold) {
                     maxVal = mmr.maxVal;
@@ -188,7 +190,7 @@ public class Start {
 
                 double matchPercent = mmr.maxVal * 100; // Конвертируем в проценты
                 // Выводим результат для каждого шаблона
-                System.out.printf("Шаблон: %-10s | Совпадение: %.2f%%\n", entry.getKey(), matchPercent);
+//                System.out.printf("Шаблон: %-10s | Совпадение: %.2f%%\n", entry.getKey(), matchPercent);
 
                 if (mmr.maxVal > maxVal && mmr.maxVal >= threshold) {
                     maxVal = mmr.maxVal;
@@ -261,14 +263,14 @@ public class Start {
             cardTemplates.put(templateName, template);
 
             // Отладочный вывод
-            System.out.printf(
-                    "Загружен шаблон: %-15s | Каналы: %d | Тип: %s | Размер: %dx%d\n",
-                    templateName,
-                    template.channels(),
-                    CvType.typeToString(template.type()),
-                    template.cols(),
-                    template.rows()
-            );
+//            System.out.printf(
+//                    "Загружен шаблон: %-15s | Каналы: %d | Тип: %s | Размер: %dx%d\n",
+//                    templateName,
+//                    template.channels(),
+//                    CvType.typeToString(template.type()),
+//                    template.cols(),
+//                    template.rows()
+//            );
         }
 
         for (File file : myFiles) {
@@ -298,14 +300,14 @@ public class Start {
             myCardTemplates.put(templateName, template);
 
             // Отладочный вывод
-            System.out.printf(
-                    "Загружен шаблон: %-15s | Каналы: %d | Тип: %s | Размер: %dx%d\n",
-                    templateName,
-                    template.channels(),
-                    CvType.typeToString(template.type()),
-                    template.cols(),
-                    template.rows()
-            );
+//            System.out.printf(
+//                    "Загружен шаблон: %-15s | Каналы: %d | Тип: %s | Размер: %dx%d\n",
+//                    templateName,
+//                    template.channels(),
+//                    CvType.typeToString(template.type()),
+//                    template.cols(),
+//                    template.rows()
+//            );
         }
     }
 }
