@@ -27,7 +27,7 @@ public class Start {
     }
 
     public static void main(String[] args) {
-        File screenshotFile = new File("src/main/resources/screenshot/screenshot14.png");
+        File screenshotFile = new File("src/main/resources/screenshot/screenshot29.png");
         Mat img = Imgcodecs.imread(screenshotFile.getAbsolutePath());
         Imgcodecs.imwrite("img.png", img);
 
@@ -96,19 +96,43 @@ public class Start {
 
 
 
+        getMyCards(allImage, img);
 
+//        Rect myCard1 = new Rect(870, 655, 40, 44);
+//        Mat myCard1Cut = allImage.submat(myCard1);
+////        Imgcodecs.imwrite("my_A.png", myCard1Cut);
+//        String recognizedMyCard1 = myMatchCard(myCard1Cut);
+//        System.out.println("Распознана моя карта 1: " + recognizedMyCard1);
+//
+//        Rect myCard2 = new Rect(965, 655, 40, 44);
+//        Mat myCard2Cut = allImage.submat(myCard2);
+////        Imgcodecs.imwrite("my_8.png", myCard2Cut);
+//        String recognizedMyCard2 = myMatchCard(myCard2Cut);
+//        System.out.println("Распознана моя карта 2: " + recognizedMyCard2);
+    }
 
+    private static void getMyCards(Mat allImage,Mat img) {
         Rect myCard1 = new Rect(870, 655, 40, 44);
         Mat myCard1Cut = allImage.submat(myCard1);
 //        Imgcodecs.imwrite("my_A.png", myCard1Cut);
         String recognizedMyCard1 = myMatchCard(myCard1Cut);
         System.out.println("Распознана моя карта 1: " + recognizedMyCard1);
+        Rect card1Suite = new Rect(910, 655, 30, 31);
+        Mat card1SuiteCut = img.submat(card1Suite);
+//        Imgcodecs.imwrite("1234578111.png", card1SuiteCut);
+        String recognizedCard1Suite = detectCardSuit(card1SuiteCut);
+        System.out.println("Распознана моя карта 1 масть: " + recognizedCard1Suite);
 
         Rect myCard2 = new Rect(965, 655, 40, 44);
         Mat myCard2Cut = allImage.submat(myCard2);
 //        Imgcodecs.imwrite("my_8.png", myCard2Cut);
         String recognizedMyCard2 = myMatchCard(myCard2Cut);
         System.out.println("Распознана моя карта 2: " + recognizedMyCard2);
+        Rect card2Suite = new Rect(1005, 655, 30, 31);
+        Mat card2SuiteCut = img.submat(card2Suite);
+//        Imgcodecs.imwrite("1234578111.png", card1SuiteCut);
+        String recognizedCard2Suite = detectCardSuit(card2SuiteCut);
+        System.out.println("Распознана моя карта 2 масть: " + recognizedCard2Suite);
     }
 
     private static String matchCard(Mat cardImage) {
