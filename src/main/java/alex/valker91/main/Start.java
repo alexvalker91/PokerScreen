@@ -21,13 +21,16 @@ public class Start {
     private static final String TEMPLATES_CARD_SUITE = "C:\\Users\\Aliaksandr_Kreyer\\Desktop\\my\\my\\PokerScreen\\src\\main\\resources\\card_suits";
     private static Map<String, Mat> templatesCardSuite = new HashMap<>();
 
+    private static final String TEMPLATES_MY_CARD_SUITE = "C:\\Users\\Aliaksandr_Kreyer\\Desktop\\my\\my\\PokerScreen\\src\\main\\resources\\my_card_suits";
+    private static Map<String, Mat> templatesMyCardSuite = new HashMap<>();
+
     static {
         System.load("C:\\Users\\Aliaksandr_Kreyer\\Desktop\\my\\OpenCV\\opencv\\build\\java\\x64\\opencv_java4110.dll");
         loadCardTemplates();
     }
 
     public static void main(String[] args) {
-        File screenshotFile = new File("src/main/resources/screenshot/screenshot29.png");
+        File screenshotFile = new File("src/main/resources/screenshot/screenshot17.png");
         Mat img = Imgcodecs.imread(screenshotFile.getAbsolutePath());
         Imgcodecs.imwrite("img.png", img);
 
@@ -119,8 +122,8 @@ public class Start {
         System.out.println("Распознана моя карта 1: " + recognizedMyCard1);
         Rect card1Suite = new Rect(910, 655, 30, 31);
         Mat card1SuiteCut = img.submat(card1Suite);
-//        Imgcodecs.imwrite("1234578111.png", card1SuiteCut);
-        String recognizedCard1Suite = detectCardSuit(card1SuiteCut);
+//        Imgcodecs.imwrite("Spades.png", card1SuiteCut);
+        String recognizedCard1Suite = detectMyCardSuit(card1SuiteCut);
         System.out.println("Распознана моя карта 1 масть: " + recognizedCard1Suite);
 
         Rect myCard2 = new Rect(965, 655, 40, 44);
@@ -131,7 +134,7 @@ public class Start {
         Rect card2Suite = new Rect(1005, 655, 30, 31);
         Mat card2SuiteCut = img.submat(card2Suite);
 //        Imgcodecs.imwrite("1234578111.png", card1SuiteCut);
-        String recognizedCard2Suite = detectCardSuit(card2SuiteCut);
+        String recognizedCard2Suite = detectMyCardSuit(card2SuiteCut);
         System.out.println("Распознана моя карта 2 масть: " + recognizedCard2Suite);
     }
 
@@ -280,6 +283,38 @@ public class Start {
         return binaryImg;
     }
 
+    private static String detectMyCardSuit(Mat cardRegion) {
+        double maxScore = -1;
+        String bestMatch = "Unknown";
+
+        // Проходим по всем загруженным шаблонам
+        for (Map.Entry<String, Mat> entry : templatesMyCardSuite.entrySet()) {
+            Mat result = new Mat();
+            Mat template = entry.getValue();
+
+            // Проверяем размер шаблона
+            if (cardRegion.width() < template.width() || cardRegion.height() < template.height()) {
+                System.err.println("Размер шаблона " + entry.getKey() + " превышает размер карты");
+                continue;
+            }
+
+            // Сравнение шаблонов
+            Imgproc.matchTemplate(
+                    cardRegion,
+                    template,
+                    result,
+                    Imgproc.TM_CCOEFF_NORMED
+            );
+
+            Core.MinMaxLocResult mmr = Core.minMaxLoc(result);
+            if (mmr.maxVal > maxScore) {
+                maxScore = mmr.maxVal;
+                bestMatch = entry.getKey();
+            }
+        }
+        return maxScore > 0.8 ? bestMatch : "Unknown";
+    }
+
     private static String detectCardSuit(Mat cardRegion) {
         double maxScore = -1;
         String bestMatch = "Unknown";
@@ -316,6 +351,9 @@ public class Start {
         File templatesDir = new File(TEMPLATES_PATH);
         File myTemplatesDir = new File(MY_TEMPLATES_PATH);
         File templatesCardSuiteFile = new File(TEMPLATES_CARD_SUITE);
+        File mytemplatesCardSuiteFile = new File(TEMPLATES_MY_CARD_SUITE);
+
+
 
         // Проверка существования директории
         if (!templatesDir.exists() || !templatesDir.isDirectory() || !myTemplatesDir.exists() || !myTemplatesDir.isDirectory()) {
@@ -324,9 +362,13 @@ public class Start {
             return;
         }
 
+//        private static final String TEMPLATES_MY_CARD_SUITE = "C:\\Users\\Aliaksandr_Kreyer\\Desktop\\my\\my\\PokerScreen\\src\\main\\resources\\my_card_suits";
+//        private static Map<String, Mat> templatesMyCardSuite = new HashMap<>();
+
         File[] files = templatesDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".png"));
         File[] myFiles = myTemplatesDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".png"));
         File[] myFilesSuits = templatesCardSuiteFile.listFiles((dir, name) -> name.toLowerCase().endsWith(".png"));
+        File[] mymyFilesSuits = mytemplatesCardSuiteFile.listFiles((dir, name) -> name.toLowerCase().endsWith(".png"));
 
 
         // Проверка наличия PNG-файлов
@@ -334,6 +376,17 @@ public class Start {
             System.err.println("В директории нет PNG-файлов: " + TEMPLATES_PATH);
             System.err.println("В директории нет PNG-файлов: " + MY_TEMPLATES_PATH);
             return;
+        }
+
+        for (File file : mymyFilesSuits) {
+            String name = file.getName().replace(".png", "");
+            Mat template = Imgcodecs.imread(file.getAbsolutePath());
+            if (template.empty()) {
+                System.err.println("Ошибка загрузки: " + file.getName());
+                continue;
+            }
+            templatesMyCardSuite.put(name, template);
+//            System.out.println("Загружен шаблон: " + name);
         }
 
         for (File file : myFilesSuits) {
