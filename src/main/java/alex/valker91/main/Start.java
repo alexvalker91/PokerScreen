@@ -1,12 +1,17 @@
 package alex.valker91.main;
 
+import net.sourceforge.tess4j.Tesseract;
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
+import org.opencv.core.MatOfByte;
 import org.opencv.core.Rect;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +35,7 @@ public class Start {
     }
 
     public static void main(String[] args) {
-        File screenshotFile = new File("src/main/resources/screenshot/screenshot17.png");
+        File screenshotFile = new File("src/main/resources/screenshot/screenshot33.png");
         Mat img = Imgcodecs.imread(screenshotFile.getAbsolutePath());
         Imgcodecs.imwrite("img.png", img);
 
@@ -97,8 +102,14 @@ public class Start {
 
 
 
-
-
+        Rect potROI = new Rect(870, 325, 190, 25);
+//        Imgcodecs.imwrite("pot.png", (img.submat(potROI)));
+        try {
+            String pot = recognizeText(img.submat(potROI));
+            System.out.println(pot);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         getMyCards(allImage, img);
 
 //        Rect myCard1 = new Rect(870, 655, 40, 44);
@@ -476,5 +487,19 @@ public class Start {
 //                    template.rows()
 //            );
         }
+    }
+
+    private static String recognizeText(Mat roi) throws Exception {
+        // Конвертация Mat в BufferedImage
+        MatOfByte mob = new MatOfByte();
+        Imgcodecs.imencode(".png", roi, mob);
+        byte[] byteArray = mob.toArray();
+        BufferedImage bufferedImage = ImageIO.read(new ByteArrayInputStream(byteArray));
+
+        // Распознавание текста через Tesseract
+        Tesseract tesseract = new Tesseract();
+        tesseract.setDatapath("C:\\Users\\Aliaksandr_Kreyer\\Desktop\\my\\Tesseract\\tessdata"); // Укажите путь к tessdata
+        tesseract.setLanguage("eng");
+        return tesseract.doOCR(bufferedImage).trim();
     }
 }
