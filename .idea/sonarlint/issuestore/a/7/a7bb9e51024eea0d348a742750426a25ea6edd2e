@@ -1,0 +1,21 @@
+
+a	java:S112—"FDefine and throw a dedicated exception instead of using a generic one.(™¹î…ûÿÿÿÿ
+\
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(£íŒÿÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ñş¾©
+V	java:S125'"<This block of commented-out lines of code should be removed.(¼è÷ïøÿÿÿÿ
+Q	java:S125)"<This block of commented-out lines of code should be removed.(Èòº€
+\
+java:S10756"ARefactor your code to get this URI from a customizable parameter.(îí‡´ùÿÿÿÿ
+V	java:S125:"<This block of commented-out lines of code should be removed.(–äŠŒøÿÿÿÿ
+P	java:S125C"<This block of commented-out lines of code should be removed.(ëşÆM
+N	java:S106W"9Replace this use of System.out or System.err by a logger.(Ÿ“•
+V	java:S125T"<This block of commented-out lines of code should be removed.(ìŠÉÉıÿÿÿÿ
+N	java:S106X"9Replace this use of System.out or System.err by a logger.(íœº¹
+T	java:S106“"9Replace this use of System.out or System.err by a logger.(ùçı¯ÿÿÿÿÿ
+T	java:S106¬"9Replace this use of System.out or System.err by a logger.(™•µ˜ıÿÿÿÿ
+O	java:S106®"9Replace this use of System.out or System.err by a logger.(¿İÊÈ
+;
+java:S1128	"%Remove this unused import 'java.awt'.(ï´µ©
+D
+java:S1128")Remove this unused import 'java.net.URL'.(ñìÁ„üÿÿÿÿ
