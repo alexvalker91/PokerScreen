@@ -67,9 +67,9 @@ public class Main {
         }
 
         if (loadedTable.getMyCards().equals(currentPokerTable.getMyCards())) {
-            // Тот же стол
+            // Тот же стол, должны добавить
         } else {
-            // Не тот же стол
+            // Не тот же стол, должны полностью перезаписать
         }
 
 
